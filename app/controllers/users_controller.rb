@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
 	  #Evita la inyteccion de parametros indeseados por medio de un proxy
 	  def user_params
-	  	params.require(:user).permit(:name, :password, :password_confirmation, :zone)
+	  	params.require(:user).permit(:name, :password, :password_confirmation, :zone, :picture)
 	  end
 
 	  #Verifica que el usuario tenga privilegios administrativos

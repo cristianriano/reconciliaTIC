@@ -8,14 +8,22 @@ class User < ActiveRecord::Base
 	validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false}
 	validates :zone, presence: true
  
-    has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validate :picture_size
 
+  mount_uploader :picture, PictureUploader
 
     private
 
       def downcase_name
       	self.name = name.downcase
+      end
+
+      def picture_size
+        if picture.size > 5.megabytes
+          errors.add(:picture, "Debe ser menor a 5MB")
+        end
       end
 
 end
