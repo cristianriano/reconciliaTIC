@@ -10,9 +10,15 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
 
-  resources :users
+  resources :users do
+    member do
+      get :questions
+    end
+  end
   resources :publications,   only: [:new, :create, :show, :destroy]
   resources :pardons, only: [:create, :destroy, :index]
+  resources :questions, only: [:create, :destroy, :index, :show]
+  resources :answers, only: [:create, :destroy, :new]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

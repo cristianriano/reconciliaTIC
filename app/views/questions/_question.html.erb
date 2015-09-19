@@ -1,0 +1,18 @@
+<li id="micropost-<%= question.id %>">
+  <span class="content">
+    <%= question.content %><br/>
+  </span>
+  <% if question.answers.any? %>
+    <ul class="microposts">
+      <%= render question.answers %>
+    </ul>
+  <% end %>
+  <span class="timestamp">
+  <% if !current_user.nil? %>
+    <% if current_user.admin? %>
+      <%= link_to "Eliminar", publication, method: :delete,
+                                     data: { confirm: "¿Seguro?" } %>
+    <% end %>
+  <% end %>
+  </span>
+</li>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :admin_user,  only: [:destroy, :create, :new, :index]
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :questions]
 
 
   def index
@@ -44,6 +44,11 @@ class UsersController < ApplicationController
   	User.find(params[:id]).destroy
     flash[:success] = "Usuario eliminado"
     redirect_to users_url
+  end
+
+  def questions
+  	@questions = Question.where(zone: current_user.zone)
+  	render 'show_questions'
   end
 
   private

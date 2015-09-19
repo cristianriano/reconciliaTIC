@@ -4,8 +4,11 @@ module UsersHelper
 		if !user.nil?
 			if user.picture?
 			  image_tag(user.picture.url, width: size, height: size, alt: user.name, class: "gravatar")
+			else
+				image_tag("no_profile.jpg", width: size, height: size, alt: user.name, class: "gravatar")
 			end
+		else
+			image_tag("no_profile.jpg", width: size, height: size, alt: "Sin imagen", class: "gravatar")
 		end
-		image_tag("no_profile.jpg", width: size, height: size, alt: "Sin imagen", class: "gravatar")
 	end
 end
