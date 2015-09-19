@@ -247,6 +247,14 @@ input {
 
 /* microposts */
 
+.question{
+  background-color: rgba(135,92,83,0.4);
+}
+
+.answer{
+  background-color: rgba(95,83,140,0.4);
+}
+
 .microposts {
   list-style: none;
   padding: 0;

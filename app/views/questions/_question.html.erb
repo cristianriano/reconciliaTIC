@@ -1,6 +1,6 @@
 <li id="micropost-<%= question.id %>">
-  <span class="content">
-    <%= question.content %><br/>
+  <span class="content question">
+    <em><%= question.content %><br/></em>
   </span>
   <% if logged_in? %>
     <%= link_to "Responder", new_answer_path(id: question.id) %>
