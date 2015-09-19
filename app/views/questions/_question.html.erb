@@ -2,6 +2,9 @@
   <span class="content">
     <%= question.content %><br/>
   </span>
+  <% if logged_in? %>
+    <%= link_to "Responder", new_answer_path(id: question.id) %>
+  <% end %>
   <% if question.answers.any? %>
     <ul class="microposts">
       <%= render question.answers %>

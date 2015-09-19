@@ -1,2 +1,16 @@
-<h1>Answers#new</h1>
-<p>Find me in app/views/answers/new.html.erb</p>
+<% provide(:title, 'Responder') %>
+<h1>Responder</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@answer) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= hidden_field_tag :id, params[:id] %>
+
+      <%= f.label :respuesta %>
+      <%= f.text_area :content, class: 'form-control', rows: 10 %>
+
+      <%= f.submit "Responder", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
