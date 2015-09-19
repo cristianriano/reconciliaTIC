@@ -1,0 +1,21 @@
+<li id="micropost-<%= pardon.id %>">
+  <span class="user"><strong>Anonimo </strong>
+  <% if pardon.kind == "1" %>
+    pide perdon por:
+  <% else %>
+    perdona a:
+  <% end %>
+  </span>
+  <span class="content">
+    <%= pardon.content %><br/>
+  </span>
+  <span class="timestamp">
+    Posteado hace <%= time_ago_in_words(pardon.created_at) %>.
+    <% if !current_user.nil? %>
+      <% if current_user.admin? %>
+        <%= link_to "Eliminar", pardon, method: :delete,
+                                       data: { confirm: "¿Seguro?" } %>
+      <% end %>
+    <% end %>
+  </span>
+</li>

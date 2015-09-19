@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_many :publications, dependent: :destroy
 
 	before_save :downcase_name
+  before_save :upcase_zone
 
 	validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false}
 	validates :zone, presence: true
@@ -18,6 +19,10 @@ class User < ActiveRecord::Base
 
       def downcase_name
       	self.name = name.downcase
+      end
+
+      def upcase_zone
+        self.zone = zone.upcase
       end
 
       def picture_size

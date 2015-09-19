@@ -8,8 +8,9 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <h3>Publicaciones</h3>
-    <%= button_to "Compartir", new_publication_path, class: "btn btn-primary", method: "get" %>
-    <%= render 'shared/feed' %>
+    <h3>Perdones</h3>
+    <ul class="microposts">
+      <%= render @pardons %>
+    </ul>
   </div>
 </div>

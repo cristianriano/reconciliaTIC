@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150918224647) do
 
   create_table "pardons", force: :cascade do |t|
     t.string   "content"
-    t.integer  "type"
+    t.string   "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
