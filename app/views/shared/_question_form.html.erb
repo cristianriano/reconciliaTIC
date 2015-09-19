@@ -4,7 +4,7 @@
     <%= f.label :correo %>
     <%= f.email_field :email, class: 'form-control' %>
     <%= f.label :pregunta %>
-    <%= f.text_area :content, placeholder: "Comente su caso aqui...", class: 'form-control' %>
+    <%= f.text_area :content, placeholder: "Comente su caso aqui...", class: 'form-control', rows: 8 %>
     <%= f.label :zona %>
     <%= f.select :zone, options_for_select([["Norte", "NORTE"], ["Sur", "SUR"], ["Oriente", "ORIENTE"], ["Occidente", "OCCIDENTE"]]) %>
     <%= f.label :año %>

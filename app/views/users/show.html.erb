@@ -8,10 +8,13 @@
       </h1>
       <h5>
         <%= @user.zone %> <br/>
+        <% if logged_in? %>
         <%= link_to "Editar", edit_user_path %>
+        <% end %>
       </h5>
     </section>
     <div>
+      <strong>Historia:</strong><br />
       <%= @user.history %>
     </div>
   </aside>

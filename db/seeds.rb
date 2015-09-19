@@ -28,6 +28,7 @@ end
 
 Question.create!(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus leo tortor, efficitur eu risus viverra, commodo scelerisque urna. Aliquam sed tincidunt quam. Pellentesque at nisi ipsum. Fusce ac fringilla est", email: "correo@ejemplo.com", zone: "NORTE", year: "1998")
 Question.create!(content: "Ut nec porta urna. Ut in mollis metus. Maecenas viverra elit odio, a finibus nunc posuere nec. Vestibulum pellentesque egestas nisi, vitae commodo nunc aliquam in. Sed suscipit malesuada ultrices. Sed fermentum suscipit velit, sit amet convallis nulla maximus et", email: "correo@ejemplo.com", zone: "SUR", year: "2008")
+Question.create!(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus leo tortor, efficitur eu risus viverra, commodo scelerisque urna. Aliquam sed tincidunt quam. Pellentesque at nisi ipsum. Fusce ac fringilla est", email: "correo@ejemplo.com", zone: "SUR", year: "1998")
 #Question.create!(content: "Pregunta 3", email: "correo@ejemplo.com", zone: "OCCIDENTE", year: "1998")
 #Question.create!(content: "Pregunta 4", email: "correo@ejemplo.com", zone: "ORIENTE", year: "1998")
 #Question.create!(content: "Pregunta 5", email: "correo@ejemplo.com", zone: "NORTE", year: "2005")
