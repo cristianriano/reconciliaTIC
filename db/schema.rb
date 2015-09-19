@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918221500) do
+ActiveRecord::Schema.define(version: 20150918224647) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150918221500) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
   end
 
   add_index "publications", ["user_id"], name: "index_publications_on_user_id"

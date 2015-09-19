@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :admin_user,  only: [:destroy, :create, :new, :edit, :update, :index]
+  before_action :admin_user,  only: [:destroy, :create, :new, :index]
+  before_action :logged_in_user, only [:edit, :update]
+
 
   def index
   	@users = User.paginate(page: params[:page])
@@ -19,8 +21,23 @@ class UsersController < ApplicationController
 	end
   end
 
+  def edit
+  	@user = User.find(params[:id])
+  end
+
+  def update
+  	@user = User.find(params[:id])
+    if @user.update_attributes(user_edit_params)
+      flash[:success] = "Perfil actualizado"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   def show
 	@user = User.find(params[:id])
+	@publications = @user.publications.paginate(page: params[:page])
   end
 
   def destroy
@@ -34,6 +51,10 @@ class UsersController < ApplicationController
 	  #Evita la inyteccion de parametros indeseados por medio de un proxy
 	  def user_params
 	  	params.require(:user).permit(:name, :password, :password_confirmation, :zone, :picture)
+	  end
+
+	  def user_edit_params
+	  	params.require(:user).permit(:name, :password, :password_confirmation, :picture, :history)
 	  end
 
 	  #Verifica que el usuario tenga privilegios administrativos

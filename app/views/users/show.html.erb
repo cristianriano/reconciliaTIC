@@ -3,15 +3,24 @@
   <aside class="col-md-4">
     <section>
       <h1>
-        <% if @user.picture? %>
-          <%= image_tag(@user.picture.url, width: 150, height: 150, alt: @user.name) %>
-        <% else %>
-          <%= image_tag("no_profile.jpg", alt: @user.name, width: 150, height: 150) %>
-        <% end %>
-        <%= @user.name %>
+        <%= icon_for(@user) %>
+        <%= @user.name %> <br/>
       </h1>
+      <h5>
+        <%= @user.zone %> <br/>
+        <%= link_to "Editar", edit_user_path %>
+      </h5>
     </section>
+    <div>
+      <%= @user.history %>
+    </div>
   </aside>
   <div class="col-md-8">
+    <% if @publications.any? %>
+      <ol class="microposts">
+        <%= render @publications %>
+      </ol>
+      <%= will_paginate @publications %>
+    <% end %>
   </div>
 </div> 	

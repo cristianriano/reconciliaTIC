@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
 
   resources :users
+  resources :publications,   only: [:new, :create, :show, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

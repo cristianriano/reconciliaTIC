@@ -1,0 +1,19 @@
+<% provide(:title, 'Nueva publicacion') %>
+<h1>Nueva publicacion</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@publication, html: { multipart: true }) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :contenido %>
+      <%= f.text_area :content, class: 'form-control', rows: 10 %>
+
+      <span class="picture">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
+
+      <%= f.submit "Compartir", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

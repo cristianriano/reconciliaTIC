@@ -1,0 +1,22 @@
+<li id="micropost-<%= publication.id %>">
+  <% if !publication.user.nil?%>
+    <%= link_to icon_for(publication.user, 50), publication.user %>
+    <span class="user"><%= link_to publication.user.name, publication.user %></span>
+  <% else %>
+    <%= image_tag("paz.jpg", width: 50, height: 50, alt: "Sin imagen") %>
+    <span class="user"><strong>Anonimo</strong></span>
+  <% end %>
+  <span class="content">
+    <%= publication.content %><br/>
+    <%= image_tag publication.picture.url if publication.picture? %>
+  </span>
+  <span class="timestamp">
+    Posteado hace <%= time_ago_in_words(publication.created_at) %>.
+    <% if !current_user.nil? %>
+      <% if current_user.admin? %>
+        <%= link_to "Eliminar", publication, method: :delete,
+                                       data: { confirm: "¿Seguro?" } %>
+      <% end %>
+    <% end %>
+  </span>
+</li>

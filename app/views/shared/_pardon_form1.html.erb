@@ -1,0 +1,7 @@
+<%= form_for(@pardon) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Pido perdon por..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

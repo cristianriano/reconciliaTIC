@@ -1,0 +1,6 @@
+<% if @feed_publications.any? %>
+  <ol class="microposts">
+    <%= render @feed_publications %>
+  </ol>
+  <%= will_paginate @feed_publications %>
+<% end %>
